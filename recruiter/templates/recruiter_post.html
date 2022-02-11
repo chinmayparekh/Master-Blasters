@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <head>
+         <title>New Post</title>
+      </head>
+      <p>Add job details:</p>
+      <form>
+         Company Name:<br> <input type="text" name="company">
+         <br>
+         Position:<br> <input type="text" name="position">
+         <br>
+         <!-- Expiry date:<br> <input type="datetime-local" id="expiry"
+         name="expiry" value="2018-06-12T19:30"
+         min="2018-06-07T00:00" max="2023-06-14T00:00">
+         <br> -->
+
+         <label for="skills">Required Skills:</label>
+
+        <select name="skills" id="skills" width=300 style="width: 350px"
+        size="8" multiple>
+        <option value="Python">Python</option>
+        <option value="Cpp">C++</option>
+        <option value="Linux">Linux</option>
+        <option value="Webscaping">Webscaping</option>
+        </select>
+        <br> <br> <br>
+        <label for="workmode">Mode of work:</label>
+
+        <select name="workmode" id="workmode">
+        <option value="Remote">Remote</option>
+        <option value="Physical">Physical</option>
+        
+        </select>
+        
+        <br> <br>
+        Work Location(if physical):<br> <input type="text" name="location">
+         <br>
+        
+
+         Brief Description:<br> <input type="text" name="description">
+         <br><br>
+         <input type="submit" value="SUBMIT">
+
+      </form>
+      
+   </body>
+</html>
