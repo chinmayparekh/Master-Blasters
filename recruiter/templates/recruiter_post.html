@@ -5,7 +5,8 @@
          <title>New Post</title>
       </head>
       <p>Add job details:</p>
-      <form>
+      <form method="post">
+         {% csrf_token %}
          Company Name:<br> <input type="text" name="company">
          <br>
          Position:<br> <input type="text" name="position">
@@ -15,15 +16,22 @@
          min="2018-06-07T00:00" max="2023-06-14T00:00">
          <br> -->
 
-         <label for="skills">Required Skills:</label>
+         <label for="skills">Required Skills:</label><br>
 
-        <select name="skills" id="skills" width=300 style="width: 350px"
-        size="8" multiple>
+         <input type="checkbox" id="skill1" name="skills" value="Python">
+         <label for="skill1"> Python</label><br>
+         <input type="checkbox" id="skill2" name="skills" value="Linux">
+         <label for="skill2"> Linux</label><br>
+         <input type="checkbox" id="skill3" name="skills" value="APIs">
+         <label for="skill3"> APIs</label><br>
+
+        <!-- <select name="skills"   multiple>
+         <br> <br> <br>
         <option value="Python">Python</option>
         <option value="Cpp">C++</option>
         <option value="Linux">Linux</option>
         <option value="Webscaping">Webscaping</option>
-        </select>
+        </select>-->
         <br> <br> <br>
         <label for="workmode">Mode of work:</label>
 
@@ -31,7 +39,7 @@
         <option value="Remote">Remote</option>
         <option value="Physical">Physical</option>
         
-        </select>
+        </select> 
         
         <br> <br>
         Work Location(if physical):<br> <input type="text" name="location">
