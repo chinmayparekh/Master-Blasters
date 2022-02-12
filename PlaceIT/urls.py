@@ -22,4 +22,5 @@ urlpatterns = [
     # path('register/', include('register.urls')),
     path('', include('register.urls')),
     path('recruiter/', include('recruiter.urls')),
+    path('pcell/', include('pcell.urls')),
 ]
