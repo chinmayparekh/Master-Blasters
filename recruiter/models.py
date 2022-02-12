@@ -13,10 +13,22 @@ class Recruiter_Post(models.Model):
     
     description = models.CharField(max_length = 500)
 
-    skills = models.CharField(max_length = 500)
+    # skills = models.CharField(max_length = 500)
     
     # eligible_colleges=ArrayField(models.CharField(max_length=200), blank=True)
     
+class Skills_Reqd(models.Model):
+
+    post_id=models.ForeignKey(Recruiter_Post,on_delete=models.CASCADE)
+    skill =models.CharField(max_length = 100)
+
+class Eligible_Colleges(models.Model):
+
+    post_id=models.ForeignKey(Recruiter_Post,on_delete=models.CASCADE)
+    college_name =models.CharField(max_length = 100)
+
+
+
 
 
 
