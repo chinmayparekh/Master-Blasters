@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from recruiter.models import Recruiter_Post,Skills_Reqd,Eligible_Colleges
 from register.models import Pcell
 
@@ -10,10 +10,6 @@ def home(request):
 
 def make_post(request):
 
-    # if ("company" in request.GET):
-    #     print(request.GET["company"])
-    #     print(request.GET["position"])
-    #     print(request.GET["skills"])
 
     if (request.method=="POST"):
        
@@ -30,7 +26,12 @@ def make_post(request):
     
     
         )
+        print("before save")
+        print(rp)
         rp.save()
+
+        # print([i.id for i in Recruiter_Post.objects.all()])
+        
         # print(type(request.POST.getlist("skills")))
         for i in range(len(request.POST.getlist("skills"))):
             # pass
@@ -43,7 +44,9 @@ def make_post(request):
 
             sk.save()
 
-        return render(request,"filter_posts.html")
+        return redirect("/recruiter/filter_posts")
+
+        # return render(request,"filter_posts.html")
 
     #testing
     # print(Recruiter_Post.objects.all())
