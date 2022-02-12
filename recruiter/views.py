@@ -5,7 +5,7 @@ from recruiter.models import Recruiter_Post
 # Create your views here.
 
 def home(request):
-    return render(request,"homepage.html")
+    return render(request,"filter_posts.html")
 
 def make_post(request):
 
