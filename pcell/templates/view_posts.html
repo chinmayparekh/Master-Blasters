@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Relevant posts</title>
+</head>
+<body>
+   
+<h1>Wassup</h1>
+
+{% for i in posts%}
+<p>{{i.post.company}}</p>
+
+<p>{{i.post.position}}</p>
+
+{%for j in i.skills%}
+<p>{{j.skill}}</p>
+
+{%endfor%}
+
+<p>{{i.post.workmode}}</p>
+<p>{{i.post.location}}</p>
+<p>{{i.post.description}}</p>
+
+<br><br><br><br>
+
+
+
+{%endfor%}
+
+</body>
+</html>
