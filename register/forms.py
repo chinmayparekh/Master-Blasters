@@ -16,6 +16,7 @@ class RecRegisterForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(RecRegisterForm, self).save(commit=False)
+        user.first_name = "recruiter"
         user.Company_name = self.cleaned_data["Company_name"]
         user.Company_email = self.cleaned_data["Company_email"]
         user.Company_website = self.cleaned_data["Company_website"]
@@ -38,7 +39,9 @@ class CellRegisterForm(UserCreationForm):
                   "College_email", "College_location", "password1", "password2")
 
     def save(self, commit=True):
+
         user = super(CellRegisterForm, self).save(commit=False)
+        user.username = self.cleaned_data["username"]
         user.College_name = self.cleaned_data["College_name"]
         user.College_email = self.cleaned_data["College_email"]
         user.College_website = self.cleaned_data["College_website"]

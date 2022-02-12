@@ -21,12 +21,12 @@ def register_cell(request):
             College_website = form.cleaned_data["College_website"]
             College_location = form.cleaned_data["College_location"]
 
-            cell = Pcell(College_name=College_name, College_email=College_email, College_linkedin=College_linkedin,
+            cell = Pcell(username=username,College_name=College_name, College_email=College_email, College_linkedin=College_linkedin,
                          College_website=College_website, College_location=College_location)
             cell.save()
             messages.success(request, f'Account created for {username}!')
 
-            return redirect('register-home')
+            return redirect('logincell')
     else:
         form = CellRegisterForm()
     return render(request, 'register/register.html', {'form': form})
@@ -44,7 +44,7 @@ def register_rec(request):
             Company_linkedin = form.cleaned_data["Company_linkedin"]
             Company_website = form.cleaned_data["Company_website"]
 
-            rec = Recruiter(Company_name=Company_name, Company_email=Company_email,
+            rec = Recruiter(username=username,Company_name=Company_name, Company_email=Company_email,
                             Company_linkedin=Company_linkedin, Company_website=Company_website)
             rec.save()
             messages.success(request, f'Account created for {username}!')
@@ -52,3 +52,17 @@ def register_rec(request):
     else:
         form = RecRegisterForm()
     return render(request, 'register/register.html', {'form': form})
+
+def profile(request):
+    if not request.user.is_authenticated:
+        return render(request, 'register/register.html')
+    
+    username = request.user.username
+    
+    if Recruiter.objects.filter(username=username):
+        # Go to recruiter home page
+        return render(request, 'register/recruiterProfile.html')
+    else:
+        # go to pcell home page
+        return render(request, 'register/pcellProfile.html')
+    print(username)    

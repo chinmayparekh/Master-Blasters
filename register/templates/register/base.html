@@ -32,15 +32,21 @@
 
          <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto">
+            </li>
+            {% if user.is_authenticated %}
                <li class="nav-item">
-                   <a href="signUpRecruiter" class="nav-link">Recruiter</a>
+                  <a href="{%url 'logout'%}" class="nav-link">SignOut</a>
+               </li>
+            {% else %}
+               <li class="nav-item">
+                  <a href="{%url 'register-rec'%}" class="nav-link">Recruiter</a>
                </li>
                <li class="nav-item">
-                  <a href="signUpPCell" class="nav-link">PCell</a>
+                  <a href="{%url 'register-cell'%}" class="nav-link">PCell</a>
                </li>
                <li class="nav-item">
-               <a href="#item3" class="nav-link">SignIn</a>
-               </li>
+               <a href="{%url 'login'%}" class="nav-link">SignInCell</a>
+            {% endif %}
             </ul>
          </div>
       </div>
@@ -50,6 +56,7 @@
    <div id="content">
       {% block content %}
       {% endblock %}
+      <h1>{{sample}}</h1>
   </div>
 
 <!--Showcase-->
