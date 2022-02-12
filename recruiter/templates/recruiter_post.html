@@ -5,7 +5,7 @@
          <title>New Post</title>
       </head>
       <p>Add job details:</p>
-      <form method="post">
+      <form target="_blank" method="post">
          {% csrf_token %}
          Company Name:<br> <input type="text" name="company">
          <br>
@@ -48,7 +48,7 @@
 
          Brief Description:<br> <input type="text" name="description">
          <br><br>
-         <input type="submit" value="SUBMIT">
+         <input onclick="window.location.href = '/filter_posts/';" type="submit" href="filter_posts/" value="SUBMIT" >
 
       </form>
       
