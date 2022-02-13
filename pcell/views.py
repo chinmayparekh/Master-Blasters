@@ -1,11 +1,19 @@
 from django.shortcuts import render
 from recruiter.models import Recruiter_Post,Skills_Reqd,Eligible_Colleges
+from register.models import Recruiter,Pcell
+
 # Create your views here.
 
 def home(request):
     return render(request,"view_posts.html")
+    
 def view_posts(request):
-    college_name = "IIITB"#change this . Take from logged in name
+    # college_name = "IIITB"#change this . Take from logged in name
+    username = request.user.username
+    college_name=Pcell.objects.filter(username=username)[0].College_name
+    print(college_name)
+   
+
     cols = Eligible_Colleges.objects.filter(college_name=college_name)
     # print(cols)
     for i in cols:

@@ -61,7 +61,7 @@ def profile(request):
     
     if Recruiter.objects.filter(username=username):
         # Go to recruiter home page
-        return render(request, 'register/recruiterProfile.html')
+        return render(request, '../../recruiter/templates/recruiterProfile.html')
     else:
         # go to pcell home page
         return render(request, 'register/pcellProfile.html')
