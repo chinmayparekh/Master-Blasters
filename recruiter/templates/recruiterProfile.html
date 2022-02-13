@@ -1,7 +1,17 @@
 {%extends "base1.html" %}
 {% load static %}
 {%block content%}
-    
+    <style>
+    #profile{
+        color:#6B63FE;
+    }
+
+    #Text{
+        color:#212529;
+    }
+
+
+</style>
 <br><br><br>
 
 <div>
@@ -19,18 +29,17 @@
 
     <div id="aligndiv" class="bg-light text-dark" style="border-radius: 25px;">
         <div id="profilediv" class="p-2">
-            <h5 style="text-align: center" id="profile"><span id="carouselText" style="font-weight:bolder;">Company </span>Details</h5>
-            <h5 id="profile">Name: {{details.Company_name}}</h5>
-            <h5 id="profile">Company Website: {{details.Company_website}}</h5>
-            <h5 id="profile">Linkedin: {{details.Company_linkedin}}</h5>
-            <h5 id="profile">Email: {{details.Company_email}}</h5>
+            <h5 style="text-align: center" id="profile"><span id="Text" class="extra" style="font-weight:bolder;">Company </span>Details</h5>
+            <h5 id="profile">Name: <span id="Text"class="extra" style="font-weight:bolder;">{{details.Company_name}} </span></h5>
+            <a href=" {{details.Company_website}}" ><h5 id="profile">Company Website </h5></a>
+            <a href=" {{details.Company_linkedin}}" ><h5 id="profile">Linkedin </h5></a>
+            <h5 id="profile">Email: <span id="Text" style="font-weight:bolder;">{{details.Company_email}} </span></h5>
         </div>
     </div>
 </div>
 
 <div class="container d-flex justify-content-center">
     <small class="text-muted">
-        Use the Navbar to Create Posts
     </small>
 </div>
 {%endblock content%} 
