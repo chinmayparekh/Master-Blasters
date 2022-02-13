@@ -1,7 +1,15 @@
 {% extends "base2.html" %}
 {% load static %}
 {%block content%}
+<style>
+    #profile{
+        color:#6B63FE;
+    }
 
+    #Text{
+        color:#212529;
+    }
+</style>
 <br><br><br>
 
 <div>
@@ -17,11 +25,13 @@
 
     <div id="aligndiv" class="bg-light text-dark" style="border-radius: 25px;">
         <div id="profilediv" class="p-2">
-            <h5 style="text-align: center" id="profile"><span id="carouselText" style="font-weight:bolder;">College </span>Details</h5>
-            <h5 id="profile">Name: {{details.College_name}}</h5>
-            <h5 id="profile">College Website: {{details.College_website}}</h5>
-            <h5 id="profile">Linkedin: {{details.College_linkedin}}</h5>
-            <h5 id="profile">Email: {{details.College_email}}</h5>
+            <h5 style="text-align: center" id="profile"><span id="Text" class="extra" style="font-weight:bolder;">College </span>Details
+            </h5>
+            <h5 id="profile">Name: <span id="Text" class="extra"
+                                         style="font-weight:bolder;">{{details.College_name}} </span></h5>
+            <a href=" {{details.College_website}}"><h5 id="profile">College Website </h5></a>
+            <a href=" {{details.College_linkedin}}"><h5 id="profile">Linkedin </h5></a>
+            <h5 id="profile">Email: <span id="Text" style="font-weight:bolder;">{{details.College_email}} </span></h5>
         </div>
     </div>
 </div>

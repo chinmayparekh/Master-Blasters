@@ -89,15 +89,16 @@ def filter_posts(request):
         if ('colleges' in request.POST):
             username = request.user.username
             details = Recruiter.objects.get(username=username)
+            filtered_colleges = request.POST.getlist("colleges")
+            print(filtered_colleges)
+            print("Latest comp", Recruiter_Post.objects.last().company)
+            for i in filtered_colleges:
+                ec = Eligible_Colleges(
+                    post_id=Recruiter_Post.objects.last(),
+                    college_name=i
+                )
+                ec.save()
             return render(request, 'recruiterProfile.html', {"details": details})
-        filtered_colleges = request.POST.getlist("colleges")
-        print(filtered_colleges)
-        print("Latest comp", Recruiter_Post.objects.last().company)
-        for i in filtered_colleges:
-            ec = Eligible_Colleges(
-                post_id=Recruiter_Post.objects.last(),
-                college_name=i
-            )
-            ec.save()
+
 
         return render(request, "filter_posts.html", {"flag": 0})

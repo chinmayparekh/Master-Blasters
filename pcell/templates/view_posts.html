@@ -1,30 +1,45 @@
 {% extends "base2.html" %}
 {% load static %}
 {%block content%}
-<head>
-    <title>View Relevant posts</title>
-</head>
-<body>
-   
-<h1>Wassup</h1>
-
-{% for i in posts%}
-<p>{{i.post.company}}</p>
-
-<p>{{i.post.position}}</p>
-
-{%for j in i.skills%}
-<p>{{j.skill}}</p>
-
-{%endfor%}
-
-<p>{{i.post.workmode}}</p>
-<p>{{i.post.location}}</p>
-<p>{{i.post.description}}</p>
-
-<br><br><br><br>
+<style>
+    #cards{
+        width:25vw;
+    }
 
 
 
-{%endfor%}
+</style>
+<br><br><br>
+<h1 id="regText">Jobs For You!</h1>
+<section class="p-5 ">
+    <div class="container  ">
+        <div class="row text-center g-4 ">
+            <div class="col-md ">
+
+                {% for i in posts%}
+                <br>
+                <div id="cards" class="card bg-dark text-light " style="margin: 0 auto;">
+                    <div class="card-body text-center" class="">
+
+                        <p>{{i.post.company}}</p>
+
+                        <p>{{i.post.position}}</p>
+
+                        {%for j in i.skills%}
+                        <p>{{j.skill}}</p>
+
+                        {%endfor%}
+
+                        <p>{{i.post.workmode}}</p>
+                        <p>{{i.post.location}}</p>
+                        <p>{{i.post.description}}</p>
+
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</section>
+
 {%endblock content%}
