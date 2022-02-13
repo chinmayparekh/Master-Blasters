@@ -30,11 +30,27 @@
 {
    font-family: 'Roboto Mono', monospace;
    color: #6b63fe;
-   
+   border: 2px solid #2f2e40;
 }
+
+
 #mybtn:hover
 {
    background-color: #2f2e40;
+   cursor:pointer;
+}
+
+#mybtn2
+{
+   margin:auto;
+   font-family: 'Roboto Mono', monospace;
+   color:#f8f9fb;
+}
+
+#mybtn2:hover
+{
+   background-color: #f8f9fb;
+   color:#6b63fe;
    cursor:pointer;
 }
 
@@ -87,4 +103,14 @@
 {
    border-radius: 10%;
    background-color: #6b63fe;
+}
+
+#profilediv
+{
+   text-align:left;
+}
+
+#profile
+{
+   font-size: min(25px,2vw);
 }

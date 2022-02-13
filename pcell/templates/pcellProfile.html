@@ -1,17 +1,34 @@
 {% extends "base2.html" %}
-
+{% load static %}
 {%block content%}
-    <h2>You have been logged into Pcell Profile</h2>
-    <!-- <h2>You have been logged into Pcell Profile</h2>
-    <h2>You have been logged into Pcell Profile</h2>
-    <h2>You have been logged into Pcell Profile</h2>
-    <h2>You have been logged into Pcell Profile</h2>
-    <h2>You have been logged into Pcell Profile</h2> -->
 
-     <br><br><br><br><br><br><br><br>
-    <h1>{{details.College_name}}</h1>
-    <h1>{{details.College_website}}</h1>
-    <h1>{{details.College_linkedin}}</h1>
-    <h1>{{details.College_email}}</h1>
+<br><br><br>
+
+<div>
+    <br>
+    <h1 id="regText">This is You!</h1>
+    <br>
+</div>
+<div id="formbox" class=" bg-dark text-light container d-flex justify-content-center mb-3re">
+    <div id="aligndiv" class=" text-light d-flex">
+        <div class="d-none d-md-block p-2"><img src="{% static 'images/profile.svg' %}" class="d-block w-100" alt="assets/portfolio.svg"></div>
     
+    </div>
+
+    <div id="aligndiv" class="bg-light text-dark" style="border-radius: 25px;">
+        <div id="profilediv" class="p-2">
+            <h5 style="text-align: center" id="profile"><span id="carouselText" style="font-weight:bolder;">College </span>Details</h5>
+            <h5 id="profile">Name: {{details.College_name}}</h5>
+            <h5 id="profile">College Website: {{details.College_website}}</h5>
+            <h5 id="profile">Linkedin: {{details.College_linkedin}}</h5>
+            <h5 id="profile">Email: {{details.College_email}}</h5>
+        </div>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-center">
+    <small class="text-muted">
+        Use the Navbar to View Posts
+    </small>
+</div>
 {%endblock content%} 
