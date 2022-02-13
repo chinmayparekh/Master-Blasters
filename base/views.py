@@ -16,7 +16,6 @@ symptoms = []
 def home(request):
     return render(request, 'register/home.html', )
 
-
 def lobby(request):
     return render(request, 'base/lobby.html', {'title': 'Lobby'})
 
@@ -26,8 +25,8 @@ def room(request):
 
 
 def getToken(request):
-    appId = "e0d7ec323e2e486d90b034dc76797818"
-    appCertificate = "54db1f62a5704dcc872a5ba79a7f8d3b"
+    appId = "c13e8d2ddedb4901bf4bbc56c5d90d86"
+    appCertificate = "1c3a7ebbf4f64bfd9de6488ce6d84808"
     channelName = request.GET.get('channel')
     uid = random.randint(1, 230)
     expirationTimeInSeconds = 3600
