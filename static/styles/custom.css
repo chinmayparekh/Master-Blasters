@@ -25,6 +25,28 @@
    color: #6b63fe;
 }
 
+
+#mybtn
+{
+   font-family: 'Roboto Mono', monospace;
+   color: #6b63fe;
+   
+}
+#mybtn:hover
+{
+   background-color: #2f2e40;
+   cursor:pointer;
+}
+
+#regText
+{
+   font-family: 'Roboto Mono', monospace;
+   color: #6b63fe;
+   text-align: center;
+   font-weight: bold;
+   font-size: min(100px, 7vw)
+}
+
 #robotofont
 {
    font-family: 'Roboto Mono', monospace;
@@ -34,4 +56,35 @@
 {
    background-color: white;
    color: white;
+}
+
+#formbox
+{
+   max-width: min(1000px,60%);
+   margin:auto;
+   /* background-color: red; */
+   border-radius: 25px;
+   border: 2px solid black;
+   padding:20px;
+}
+
+
+#aligndiv
+{
+   display: flex;
+   align-items:center;
+   flex-wrap: wrap;
+}
+
+#aligndiv2
+{
+   display: flex 2 1 auto;
+   align-items:center;
+   flex-wrap: wrap;
+}
+
+.nav-link:hover
+{
+   border-radius: 10%;
+   background-color: #6b63fe;
 }

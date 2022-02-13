@@ -26,7 +26,7 @@ def register_cell(request):
             cell.save()
             messages.success(request, f'Account created for {username}!')
 
-            return redirect('logincell')
+            return redirect('login')
     else:
         form = CellRegisterForm()
     return render(request, 'register/register.html', {'form': form})

@@ -19,12 +19,11 @@
    {% endif %}
 
 </head>
-<body>
-
+<body style="background-image: url({% static 'images/background4.png' %});">
    <!-- Navbar -->
    <nav class="navbar navbar-expand-lg bg-dark navbar-dark pt-3 fixed-top">
       <div class="container">
-         <a href="#" class="navbar-brand" id="robotofont">Place<span id="carouselText">IT</span></a>
+         <a href="#" class="navbar-brand" id="robotofont" style="font-size: xx-large;">Place<span id="carouselText">IT</span></a>
          
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
@@ -39,13 +38,18 @@
                </li>
             {% else %}
                <li class="nav-item">
-                  <a href="{%url 'register-rec'%}" class="nav-link">Recruiter</a>
+                  <div class="dropdown">
+                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                       Register
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                       <li><a href="{%url 'register-rec'%}" class="dropdown-item">Recruiter</a></li>
+                       <li><a href="{%url 'register-cell'%}" class="dropdown-item">PCell</a></li>
+                     </ul>
+                   </div>
                </li>
                <li class="nav-item">
-                  <a href="{%url 'register-cell'%}" class="nav-link">PCell</a>
-               </li>
-               <li class="nav-item">
-               <a href="{%url 'login'%}" class="nav-link">SignInCell</a>
+               <a href="{%url 'login'%}" class=" px-3 nav-link">SignInCell</a>
             {% endif %}
             </ul>
          </div>
