@@ -1,48 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Filter based on choices</title>
-</head>
-<body>
-    <!-- <p id="message"></p>
-    {% for post in posts %}
-    <h3>{{ forloop.counter }}) {{ post.post_heading }}</h3>
-    <p>{{ post.post_text }} </p>
-    <a class="likebutton" id="like{{post.id}}" href="#" data-catid="{{ post.id }}">Like</a>
-    {% endfor %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script type="text/javascript">
-    $('.likebutton').click(function(){
-    var catid;
-    catid = $(this).attr("data-catid");
-    $.ajax(
+{% extends "base1.html" %}
+{% load static %}
+{% block content %}
+
+<title>Filter based on choices</title>
+
+<!-- <p id="message"></p>
+{% for post in posts %}
+<h3>{{ forloop.counter }}) {{ post.post_heading }}</h3>
+<p>{{ post.post_text }} </p>
+<a class="likebutton" id="like{{post.id}}" href="#" data-catid="{{ post.id }}">Like</a>
+{% endfor %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+$('.likebutton').click(function(){
+var catid;
+catid = $(this).attr("data-catid");
+$.ajax(
+{
+    type:"GET",
+    url: "/likepost",
+    data:{
+             post_id: catid
+    },
+    success: function( data )
     {
-        type:"GET",
-        url: "/likepost",
-        data:{
-                 post_id: catid
-        },
-        success: function( data ) 
-        {
-            $( '#like'+ catid ).remove();
-            $( '#message' ).text(data);
-        }
-     })
+        $( '#like'+ catid ).remove();
+        $( '#message' ).text(data);
+    }
+ })
 });
 </script> -->
 {%if flag == 0 %}
 <form>
     College Location1:<br> <input type="text" name="location1">
 
-<br>
-College Location2:<br> <input type="text" name="location2">
+    <br>
+    College Location2:<br> <input type="text" name="location2">
 
-<br>
-College Location3:<br> <input type="text" name="location3">
+    <br>
+    College Location3:<br> <input type="text" name="location3">
 
-<br>
+    <br>
 
-<input type="submit" value="SUBMIT">
+    <input type="submit" value="SUBMIT">
 
 </form>
 
@@ -52,7 +52,7 @@ College Location3:<br> <input type="text" name="location3">
     <label for="colleges">Send to which colleges?</label><br>
 
     {% for i in colleges %}
-    <input type="checkbox"  id="col1" name="colleges" value="{{i}}">
+    <input type="checkbox" id="col1" name="colleges" value="{{i}}">
     <label for="col1"> {{i}}</label><br>
     {%endfor%}
     <input type="submit" value="SUBMIT">
@@ -60,6 +60,4 @@ College Location3:<br> <input type="text" name="location3">
 
 {%endif%}
 
-
-</body>
-</html>
+{% endblock %}
