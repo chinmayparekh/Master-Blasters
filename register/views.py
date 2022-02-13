@@ -48,7 +48,7 @@ def register_rec(request):
                             Company_linkedin=Company_linkedin, Company_website=Company_website)
             rec.save()
             messages.success(request, f'Account created for {username}!')
-            return redirect('register-home')
+            return redirect('login')
     else:
         form = RecRegisterForm()
     return render(request, 'register/register.html', {'form': form})
@@ -61,8 +61,11 @@ def profile(request):
     
     if Recruiter.objects.filter(username=username):
         # Go to recruiter home page
-        return render(request, '../../recruiter/templates/recruiterProfile.html')
+       
+        details = Recruiter.objects.get(username=username)
+        return render(request, '../../recruiter/templates/recruiterProfile.html',{"details":details})
     else:
         # go to pcell home page
-        return render(request, 'register/pcellProfile.html')
-    print(username)    
+        dets = Pcell.objects.get(username=username)
+        return render(request, '../../pcell/templates/pcellProfile.html',{"details":dets})
+    # print(username)    
